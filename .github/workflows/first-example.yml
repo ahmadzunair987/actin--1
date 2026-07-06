@@ -6,8 +6,8 @@ jobs:
     first_job:
         runs-on: ubuntu-latest
         steps:
-        - name: Welcome message
-          run: echo "My first gihub action job"
+        - name: Checkout repo  
+          uses: actions/checkout@v7
         
         - name: list the files
           run: ls
