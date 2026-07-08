@@ -16,4 +16,8 @@ jobs:
             cat README.md
 
         - name: Run third party library in action
-          run: cowsay -f dragon "Run for cover, I am a Dorgan....RAWR" >>dragon.txt
+          run: |
+            sudo apt-get update && sudo apt-get install -y cowsay
+            cowsay -f dragon "Run for cover, I am a Dorgan....RAWR" >>dragon.txt
+        - name: View dragon file
+          run: cat dragon.txt
