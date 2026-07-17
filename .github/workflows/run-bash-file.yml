@@ -1,43 +1,43 @@
-name: Run bash file
+# name: Run bash file
 
-on: push
+# on: push
 
-jobs:
-  first_job:
-    runs-on: ubuntu-latest
+# jobs:
+#   first_job:
+#     runs-on: ubuntu-latest
 
-    steps:
-      - name: Checkout repo
-        uses: actions/checkout@v4
+#     steps:
+#       - name: Checkout repo
+#         uses: actions/checkout@v4
 
-      - name: List the files
-        run: |
-          echo "Run multiple commands in a single runner"
-          ls -R
+#       - name: List the files
+#         run: |
+#           echo "Run multiple commands in a single runner"
+#           ls -R
       
-      - name: Run bash file
-        run: |
-          sudo apt-get update && sudo apt-get install -y cowsay
-            cowsay -f dragon "Run for cover, I am a Dorgan....RAWR" >>dragon.txt
+#       - name: Run bash file
+#         run: |
+#           sudo apt-get update && sudo apt-get install -y cowsay
+#             cowsay -f dragon "Run for cover, I am a Dorgan....RAWR" >>dragon.txt
 
-      - name: Upload math result for job 1
-        uses: actions/upload-artifact@v4
-        with:
-          name: my_file
-          path: dragon.txt
+#       - name: Upload math result for job 1
+#         uses: actions/upload-artifact@v4
+#         with:
+#           name: my_file
+#           path: dragon.txt
         
-      - name: List files after upload
-        run: ls -lh 
-  second_job:
-    runs-on: ubuntu-latest
-    needs: first_job
+#       - name: List files after upload
+#         run: ls -lh 
+#   second_job:
+#     runs-on: ubuntu-latest
+#     needs: first_job
 
-    steps:
-      - name: Download dragon file
-        uses: actions/download-artifact@v5
-        with:
-          name: my_file
-      - name: View dragon file.
-        run: |
-         ls -lh
-         cat dragon.txt
+#     steps:
+#       - name: Download dragon file
+#         uses: actions/download-artifact@v5
+#         with:
+#           name: my_file
+#       - name: View dragon file.
+#         run: |
+#          ls -lh
+#          cat dragon.txt
